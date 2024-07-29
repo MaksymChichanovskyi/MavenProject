@@ -1,17 +1,15 @@
-def agentName = 'linux'
+import ExampleA.Shared
+
+def agentName = 'linux && docker'
 def someText = 'Hello!'
-
-
 
 node(agentName) { //run this part on an agent with label 'linux'
     stage('Checkout') {
-        checkout scm
+        def shared = new Shared()
+        shared. CheckoutGit
     }
-    stage('Build') {
-        def imageName = "maven:3.9.8-amazoncorretto-11"
-        docker.image(imageName).pull()
-        docker.image(imageName).inside() {
-                sh "mvn clean package"
-        }
+  stage('Build'){
+     def shared = new Shared()
+      shared.startBuild()
     }
 }
