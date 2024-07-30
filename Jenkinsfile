@@ -5,8 +5,9 @@ def someText = 'Hello!'
 
 node(agentName) { //run this part on an agent with label 'linux'
     stage('Checkout') {
-        def shared = new Shared()
-        shared.CheckoutGit()
+        checkout scm
+       /* def shared = new Shared()
+        shared.CheckoutGit()*/
     }
   stage('Build'){
      def shared = new Shared()
