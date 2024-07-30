@@ -17,7 +17,7 @@ node(agentName) { //run this part on an agent with label 'linux'
       shared.startBuild()
     }
    stage('Get Jar Size'){
-    def jarSize = shared.getJarSize('Workspace/target/Education.ExampleA-${env.BUILD_NUMBER}.jar')
+    def jarSize = shared.getJarSize('/tmp/jenkins/workspace/MavenProject/target/Education.ExampleA-${env.BUILD_NUMBER}.jar')
         echo "The size of the JAR file is: ${jarSize} bytes"
    }
  
