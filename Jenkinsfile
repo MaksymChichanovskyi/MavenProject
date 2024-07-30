@@ -17,6 +17,6 @@ node(agentName) { //run this part on an agent with label 'linux'
       
     }
     stage('Update Pom'){
-        updatePomVersion('MavenProject/pom.xml')
+        com.example.PomUtils.updatePomVersion('MavenProject/pom.xml', env.BUILD_NUMBER)
     }
 }
