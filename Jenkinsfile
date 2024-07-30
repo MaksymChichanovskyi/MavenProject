@@ -15,10 +15,17 @@ node(agentName) { //run this part on an agent with label 'linux'
      def shared = new Shared()
       shared.startBuild()
        script {
-            
-                    def jarFile = 'target/Education.ExampleA-${env.BUILD_NUMBER_VERSION}.jar'
-                    def size = sh(script: "du -sh ${jarFile} | cut -f1", returnStdout: true).trim()
-                    echo "Size of the JAR file ${jarFile} is ${size}"
+                    def jarFile = "target/Education.ExampleA-${env.BUILD_NUMBER_VERSION}.jar"  // Шлях до вашого JAR-файлу
+                    
+                    // Перевірка існування файлу і виведення його розміру
+                    sh """
+                        if [ -f ${jarFile} ]; then
+                            size=\$(du -sh ${jarFile} | cut -f1)
+                            echo "Size of the JAR file ${jarFile} is \${size}"
+                        else
+                            echo "JAR file ${jarFile} does not exist."
+                        fi
+                    """
                 }
     }
     
