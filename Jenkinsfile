@@ -3,14 +3,12 @@ import ExampleA.Shared
 def agentName = 'linux && docker'
 def someText = 'Hello!'
 
+
 node(agentName) { //run this part on an agent with label 'linux'
     stage('Checkout') {
-      
-       //def shared = new Shared()
+        def shared = new Shared()
         shared.CheckoutGit()
     }
-
-     
 
     
   stage('Build'){
