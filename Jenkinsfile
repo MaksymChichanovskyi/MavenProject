@@ -10,11 +10,12 @@ node(agentName) { //run this part on an agent with label 'linux'
         shared.CheckoutGit()*/
     }
     stage('Update pom'){
-        script{
+        steps{
+            script{
             updatePom()
         }
     }
-    
+    }
   stage('Build'){
      def shared = new Shared()
       shared.startBuild()
