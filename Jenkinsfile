@@ -16,5 +16,8 @@ node(agentName) { //run this part on an agent with label 'linux'
       shared.startBuild()
       
     }
-    
+    stage('Update Pom'){
+        def shared = new Shared()
+        shared.updatePomVersion()
+    }
 }
