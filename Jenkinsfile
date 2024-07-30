@@ -1,7 +1,7 @@
 import ExampleA.Shared
 
 
- def shared = new Shared()
+ def shared = new mavenApp()
  share.mavenApp()
     
 
