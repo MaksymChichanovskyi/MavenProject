@@ -12,7 +12,6 @@ node(agentName) { //run this part on an agent with label 'linux'
 
     
   stage('Build'){
-     def shared = new Shared()
       shared.startBuild()
       
     }
