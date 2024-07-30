@@ -17,7 +17,6 @@ node(agentName) { //run this part on an agent with label 'linux'
       
     }
     stage('Update Pom'){
-        def shared = new Shared()
-        shared.updatePomVersion()
+        updatePomVersion('MavenProject/pom.xml')
     }
 }
