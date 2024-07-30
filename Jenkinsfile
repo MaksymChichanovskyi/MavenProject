@@ -16,7 +16,7 @@ node(agentName) { //run this part on an agent with label 'linux'
       shared.startBuild()
        script {
             
-                    def jarFile = 'target/your-app-name-${env.BUILD_NUMBER_VERSION}.jar'  // Шлях до вашого JAR-файлу
+                    def jarFile = 'target/Education.ExampleA-${env.BUILD_NUMBER_VERSION}.jar'
                     def size = sh(script: "du -sh ${jarFile} | cut -f1", returnStdout: true).trim()
                     echo "Size of the JAR file ${jarFile} is ${size}"
                 }
