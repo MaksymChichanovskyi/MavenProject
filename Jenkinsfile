@@ -5,14 +5,11 @@ pipeline {
         stage('Run Maven App') {
             steps {
                 script {
-                    // Загрузка Shared.groovy
-                    def sharedScript = libraryResource 'ExampleA/Shared.groovy'
+                    // Завантаження бібліотеки
+                    def shared = new ExampleA.Shared()
                     
-                    // Оцінка скрипту
-                    evaluate sharedScript
-
                     // Виклик основного методу
-                    mavenApp()
+                    shared.mavenApp()
                 }
             }
         }
