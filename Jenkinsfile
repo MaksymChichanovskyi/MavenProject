@@ -12,7 +12,7 @@ node(agentName) { //run this part on an agent with label 'linux'
     stage('Update pom'){
         steps{
             script{
-            updatePom()
+             UpdatePom.updateVersion(env.BUILD_NUMBER)
         }
     }
     }
