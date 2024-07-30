@@ -9,10 +9,16 @@ node(agentName) { //run this part on an agent with label 'linux'
        
         checkout scm
     }
-
+     stage('Update Version'){
+      shared.updatePomVersion(env.BUILD_NUMBER)
+     }
     
   stage('Build'){
       shared.startBuild()
-      
     }
+   stage('Get Jar Size'){
+    def jarSize = shared.getJarSize('target/Education.ExampleA-1.0-SNAPSHOT.jar')
+        echo "The size of the JAR file is: ${jarSize} bytes"
+   }
+ 
 }
