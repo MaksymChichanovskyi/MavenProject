@@ -1,14 +1,19 @@
-pipeline {
-    agent any
+import ExampleA.Shared
 
-    stages {
-        stage('Run Maven App') {
-            steps {
-                script {
-                   
-                    shared.mavenApp()
-                }
-            }
-        }
+def agentName = 'linux && docker'
+def someText = 'Hello!'
+ def shared = new Shared()
+
+node(agentName) { //run this part on an agent with label 'linux'
+    stage('Checkout') {
+       
+        checkout scm
+    }
+
+    
+  stage('Build'){
+     def shared = new Shared()
+      shared.startBuild()
+      
     }
 }
