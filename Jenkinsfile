@@ -1,4 +1,4 @@
 import shared.Maven
 
-def shared = new Shared()
+def maven = new Maven()
  maven.mavenApp()
