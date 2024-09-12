@@ -1,4 +1,4 @@
-import jobs.Maven
+import shared.Maven
 
-def maven = new Maven()
+def shared = new Shared()
  maven.mavenApp()
